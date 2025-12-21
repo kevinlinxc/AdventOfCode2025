@@ -6,7 +6,7 @@ fn main() {
         .join("inputs")
         .join("1.txt");
 
-    let lines = read_lines_into_vec(file_name)?;
+    let lines = read_lines_into_vec(file_name).unwrap();
 
     let mut zero_count: i32 = 0;
     let mut lock_state: i32 = 50;

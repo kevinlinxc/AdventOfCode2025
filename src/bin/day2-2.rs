@@ -29,7 +29,7 @@ fn main() {
         .join("inputs")
         .join("2.txt");
 
-    let lines = read_lines_into_vec(file_name)?;
+    let lines = read_lines_into_vec(file_name).unwrap();
     let first_line = lines[0].clone();
     // split on commas
     let intervals: Vec<&str> = first_line.split(',').collect();

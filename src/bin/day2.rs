@@ -1,31 +1,20 @@
-use std::fs::File;
-use std::io::{self, BufRead};
-use std::path::Path;
-
-fn read_lines_into_vec<P>(filename: P) -> io::Result<Vec<String>>
-where
-    P: AsRef<Path>,
-{
-    let file = File::open(filename)?;
-    let reader = io::BufReader::new(file);
-    // Collect the results into a vector, failing if any line read fails
-    let lines_vec: Vec<String> = reader.lines().collect::<io::Result<_>>()?;
-    Ok(lines_vec)
-}
+use AdventOfCode2025::utils::read_lines_into_vec;
 
 fn is_invalid_id(id: &u64) -> bool {
     // convert to string
     let str_id = id.to_string();
     let length = str_id.len();
-    let first_half = str_id[0..length/2].to_string();
-    let second_half = str_id[length/2..length].to_string();
+    let first_half = str_id[0..length / 2].to_string();
+    let second_half = str_id[length / 2..length].to_string();
     return first_half == second_half;
 }
 
-fn main() -> io::Result<()> {
+fn main() {
     let manifest_dir = env!("CARGO_MANIFEST_DIR");
-    let file_name = std::path::Path::new(manifest_dir).join("inputs").join("2.txt");
-    
+    let file_name = std::path::Path::new(manifest_dir)
+        .join("inputs")
+        .join("2.txt");
+
     let lines = read_lines_into_vec(file_name)?;
     let first_line = lines[0].clone();
     // split on commas
@@ -42,11 +31,8 @@ fn main() -> io::Result<()> {
                 println!("invalid: {i}");
                 total += i;
             }
-
         }
     }
-    
-    println!("total: {total}");
 
-    Ok(())
+    println!("total: {total}");
 }

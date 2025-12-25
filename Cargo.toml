@@ -4,7 +4,9 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+image = "0.25.9"
 itertools = "0.14.0"
+png = "0.18.0"
 
 [[bin]]
 name = "AdventOfCode2025"

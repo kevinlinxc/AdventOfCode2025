@@ -7,6 +7,7 @@ edition = "2024"
 image = "0.25.9"
 itertools = "0.14.0"
 png = "0.18.0"
+z3 = "0.19.6"
 
 [[bin]]
 name = "AdventOfCode2025"

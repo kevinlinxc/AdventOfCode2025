@@ -1,6 +1,5 @@
 use AdventOfCode2025::utils::read_lines_into_vec;
 use itertools::Itertools;
-use std::collections::HashSet;
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 struct Point {
@@ -25,7 +24,7 @@ fn main() {
     for line in lines {
         let splitted: Vec<&str> = line.split(",").collect();
         let (x, y) = (splitted[0].parse().unwrap(), splitted[1].parse().unwrap());
-        corners.push(Point{x:x, y:y});
+        corners.push(Point { x: x, y: y });
     }
     let mut max_area = 0;
     let unique_tuples: Vec<(Point, Point)> = corners.iter().cloned().tuple_combinations().collect();
@@ -35,8 +34,6 @@ fn main() {
             max_area = area;
         }
     }
-    
-    
 
     println!("max area: {:?}", max_area);
 }
